@@ -1,5 +1,5 @@
 {
-  "name": "@alxva/portfolio-svg-icon-provider",
+  "name": "portfolio-svg-icon-provider",
   "version": "1.0.0",
   "description": "A high-performance SVG icon provider for React portfolios, powered by SVGR.",
   "keywords": [

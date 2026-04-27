@@ -1,4 +1,4 @@
-# @alxva/portfolio-svg-icon-provider
+# @portfolio-svg-icon-provider
 
 A lightweight, high-performance SVG icon provider for React portfolios. This package converts SVG files into optimized React components using SVGR, providing a type-safe and customizable way to use icons in your projects.
 
@@ -13,11 +13,11 @@ A lightweight, high-performance SVG icon provider for React portfolios. This pac
 ## 📦 Installation
 
 ```bash
-npm install @alxva/portfolio-svg-icon-provider
+npm install portfolio-svg-icon-provider
 # or
-yarn add @alxva/portfolio-svg-icon-provider
+yarn add portfolio-svg-icon-provider
 # or
-pnpm add @alxva/portfolio-svg-icon-provider
+pnpm add portfolio-svg-icon-provider
 ```
 
 ## 🛠 Usage
@@ -25,8 +25,8 @@ pnpm add @alxva/portfolio-svg-icon-provider
 Icons are exported as individual components. You can import them directly from the package subpaths.
 
 ```tsx
-import ReactIcon from '@alxva/portfolio-svg-icon-provider/React';
-import TypeScriptIcon from '@alxva/portfolio-svg-icon-provider/TypeScript';
+import ReactIcon from 'portfolio-svg-icon-provider/React';
+import TypeScriptIcon from 'portfolio-svg-icon-provider/TypeScript';
 
 const MyComponent = () => (
   <div>
