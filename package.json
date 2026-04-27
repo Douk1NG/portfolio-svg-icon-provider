@@ -1,6 +1,6 @@
 {
   "name": "portfolio-svg-icon-provider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A high-performance SVG icon provider for React portfolios, powered by SVGR.",
   "keywords": [
     "react",
@@ -21,7 +21,13 @@
     "access": "public"
   },
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
     "./*": "./dist/*.js"
   },
   "files": [
