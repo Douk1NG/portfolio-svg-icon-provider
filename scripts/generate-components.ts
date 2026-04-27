@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const SVG_DIRECTORY = './src/svg';
 const OUTPUT_DIRECTORY = './src/components';
+const TYPES_DIRECTORY = './src/types/icons';
 
 function getComponentName(fileName: string): string {
   const name = fileName.replace('.svg', '');
@@ -29,18 +30,29 @@ async function generateComponents() {
   if (!fs.existsSync(OUTPUT_DIRECTORY)) {
     fs.mkdirSync(OUTPUT_DIRECTORY, { recursive: true });
   }
+  if (!fs.existsSync(TYPES_DIRECTORY)) {
+    fs.mkdirSync(TYPES_DIRECTORY, { recursive: true });
+  }
 
   const svgFiles = fs.readdirSync(SVG_DIRECTORY).filter((file: string) => file.endsWith('.svg'));
+  const componentNames: string[] = [];
 
   for (const fileName of svgFiles) {
     const componentName = getComponentName(fileName);
+    componentNames.push(componentName);
     console.log(`Generating wrapper for ${componentName}...`);
 
     const wrapperCode = generateWrapperCode(componentName, fileName);
     fs.writeFileSync(path.join(OUTPUT_DIRECTORY, `${componentName}.tsx`), wrapperCode);
   }
 
-  console.log(`✅ Successfully generated ${svgFiles.length} thin wrappers!`);
+  // Generate the IconNames type
+  const typeCode = `export type SvgIconName = 
+  | ${componentNames.map(name => `'${name}'`).join('\n  | ')};
+`;
+  fs.writeFileSync(path.join(TYPES_DIRECTORY, 'icon-names.ts'), typeCode);
+
+  console.log(`✅ Successfully generated ${svgFiles.length} thin wrappers and SvgIconName type!`);
 }
 
 generateComponents().catch((error) => {
