@@ -1,4 +1,6 @@
-const FallbackIcon = ({ name, ...props }: { name: string } & React.SVGProps<SVGSVGElement>) => (
+import type { SVGProps } from "react";
+
+const FallbackIcon = ({ name, ...props }: { name: string } & SVGProps<SVGSVGElement>) => (
   <svg
     {...props}
     viewBox="0 0 24 24"
