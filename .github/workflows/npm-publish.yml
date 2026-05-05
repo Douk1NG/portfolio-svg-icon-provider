@@ -18,7 +18,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm ci
+      # Work around npm optional dependency resolution bug:
+      # https://github.com/npm/cli/issues/4828
+      - run: rm -rf node_modules package-lock.json
+      - run: npm install
       - run: npm test
 
   publish-npm:
@@ -31,7 +34,10 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
+      # Work around npm optional dependency resolution bug:
+      # https://github.com/npm/cli/issues/4828
+      - run: rm -rf node_modules package-lock.json
+      - run: npm install
       - run: npm run build
       - run: npm publish
         env:
