@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const SVG_DIRECTORY = './src/svg';
 const OUTPUT_DIRECTORY = './src/components';
+const DYNAMIC_DIRECTORY = './src/hooks';
 const TYPES_DIRECTORY = './src/types/icons';
 
 function getComponentName(fileName: string): string {
@@ -30,6 +31,9 @@ async function generateComponents() {
   if (!fs.existsSync(OUTPUT_DIRECTORY)) {
     fs.mkdirSync(OUTPUT_DIRECTORY, { recursive: true });
   }
+  if (!fs.existsSync(DYNAMIC_DIRECTORY)) {
+    fs.mkdirSync(DYNAMIC_DIRECTORY, { recursive: true });
+  }
   if (!fs.existsSync(TYPES_DIRECTORY)) {
     fs.mkdirSync(TYPES_DIRECTORY, { recursive: true });
   }
@@ -52,6 +56,23 @@ async function generateComponents() {
     
     indexExports.push(`export { default as ${componentName} } from './components/${componentName}';`);
   }
+
+  const loaderCode = `import type { ComponentType, SVGProps } from "react";
+import type { SvgIconName } from "@/types/icons/icon-names";
+
+export const iconLoaders: Record<SvgIconName, () => Promise<{ default: ComponentType<SVGProps<SVGSVGElement>> }>> = {
+${componentNames.map(name => `  '${name}': () => import("@/components/${name}"),`).join('\n')}
+};
+
+export function loadIcon(name: SvgIconName) {
+  const loader = iconLoaders[name];
+  if (!loader) {
+    return Promise.reject(new Error(\`Icon not found: \${name}\`));
+  }
+  return loader();
+}
+`;
+  fs.writeFileSync(path.join(DYNAMIC_DIRECTORY, 'use-icon-loaders.ts'), loaderCode);
 
   // Generate the IconNames type
   const typeCode = `export type SvgIconName = 

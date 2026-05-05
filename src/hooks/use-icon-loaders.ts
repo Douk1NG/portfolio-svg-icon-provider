@@ -1,0 +1,35 @@
+import type { ComponentType, SVGProps } from "react";
+import type { SvgIconName } from "@/types/icons/icon-names";
+
+export const iconLoaders: Record<
+  SvgIconName,
+  () => Promise<{ default: ComponentType<SVGProps<SVGSVGElement>> }>
+> = {
+  Css: () => import("@/components/Css"),
+  Cypress: () => import("@/components/Cypress"),
+  Git: () => import("@/components/Git"),
+  Github: () => import("@/components/Github"),
+  Globe: () => import("@/components/Globe"),
+  Html5: () => import("@/components/Html5"),
+  Javascript: () => import("@/components/Javascript"),
+  Linkedin: () => import("@/components/Linkedin"),
+  Next: () => import("@/components/Next"),
+  Php: () => import("@/components/Php"),
+  Postgresql: () => import("@/components/Postgresql"),
+  React: () => import("@/components/React"),
+  Tailwindcss: () => import("@/components/Tailwindcss"),
+  Typescript: () => import("@/components/Typescript"),
+  Vercel: () => import("@/components/Vercel"),
+  Vite: () => import("@/components/Vite"),
+  Window: () => import("@/components/Window"),
+  Zod: () => import("@/components/Zod"),
+  Zustand: () => import("@/components/Zustand"),
+};
+
+export function loadIcon(name: SvgIconName) {
+  const loader = iconLoaders[name];
+  if (!loader) {
+    return Promise.reject(new Error(`Icon not found: ${name}`));
+  }
+  return loader();
+}

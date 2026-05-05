@@ -98,6 +98,17 @@ Here are some of the icons included in this package:
 
 The `generate` script automatically creates thin React wrappers for each SVG file in `src/components`, ensuring they all follow the same pattern and support the `useIcon` hook.
 
+### Demo UI for testing
+
+A local demo app is available under the `demo/` folder.
+
+```bash
+npm install
+npm run demo
+```
+
+Then open `http://localhost:4173` to interact with the icon preview UI, adjust size/color, and see all supported icons.
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
