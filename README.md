@@ -30,8 +30,8 @@ import TypeScriptIcon from 'portfolio-svg-icon-provider/TypeScript';
 
 const MyComponent = () => (
   <div>
-    <ReactIcon size={32} color="#61DAFB" />
-    <TypeScriptIcon size="2em" className="my-custom-class" />
+    <ReactIcon color="#61DAFB" />
+    <TypeScriptIcon className="my-custom-class" />
   </div>
 );
 ```
@@ -42,8 +42,8 @@ Dynamic loading of icons is also supported via the `DynamicIconLoad` component:
 import { DynamicIconLoad } from 'portfolio-svg-icon-provider';
 const MyComponent = () => (
   <div>
-    <DynamicIconLoad name="React" size={32} color="#61DAFB" />
-    <DynamicIconLoad name="TypeScript" size="2em" className="my-custom-class" />
+    <DynamicIconLoad name="React" color="#61DAFB" />
+    <DynamicIconLoad name="TypeScript" className="my-custom-class" />
   </div>
 );
 ```
