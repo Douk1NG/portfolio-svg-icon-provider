@@ -52,11 +52,13 @@ const MyComponent = () => (
 
 All icon components accept the standard SVG attributes plus a convenient `size` prop:
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `size` | `number \| string` | `"1em"` | Sets both `width` and `height` of the SVG. |
-| `color` | `string` | `undefined` | Sets the `fill` or `stroke` color (if supported by the SVG). |
-| `...props` | `SVGProps` | `undefined` | Any other valid React SVG property. |
+
+| Prop       | Type              | Default     | Description                                                  |
+| ---------- | ----------------- | ----------- | ------------------------------------------------------------ |
+| `size`     | `number | string` | `"1em"`     | Sets both `width` and `height` of the SVG.                   |
+| `color`    | `string`          | `undefined` | Sets the `fill` or `stroke` color (if supported by the SVG). |
+| `...props` | `SVGProps`        | `undefined` | Any other valid React SVG property.                          |
+
 
 ## 🎨 Available Icons
 
@@ -88,13 +90,13 @@ Here are some of the icons included in this package:
 
 1. Drop your `.svg` files into the `src/svg` directory.
 2. Run the generation script:
-   ```bash
+  ```bash
    npm run generate
-   ```
+  ```
 3. Build the project:
-   ```bash
+  ```bash
    npm run build
-   ```
+  ```
 
 The `generate` script automatically creates thin React wrappers for each SVG file in `src/components`, ensuring they all follow the same pattern and support the `useIcon` hook.
 
@@ -122,3 +124,4 @@ If you are a trademark owner and would like your logo removed from this package,
 ## 🤝 Credits & Resources
 
 - **[svgl](https://svgl.app/)**
+

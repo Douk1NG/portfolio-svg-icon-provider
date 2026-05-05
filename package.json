@@ -41,6 +41,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "demo": "vite --config demo/vite.config.ts",
+    "demo:build": "vite build --config demo/vite.config.ts",
     "demo:preview": "vite preview --config demo/vite.config.ts",
     "release": "npm run generate && npm run build && npm publish"
   },

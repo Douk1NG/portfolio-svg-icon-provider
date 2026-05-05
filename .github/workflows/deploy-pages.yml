@@ -36,7 +36,7 @@ jobs:
         run: npm install
 
       - name: Build demo for Pages
-        run: npx vite build --config demo/vite.config.ts --base "/${{ github.event.repository.name }}/" --outDir demo/dist
+        run: npm run demo:build -- --base "/${{ github.event.repository.name }}/" --outDir dist
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
