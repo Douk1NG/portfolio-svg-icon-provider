@@ -1,6 +1,7 @@
 export * from './types/icons/icon-names';
 export * from './types/icons/icon-types';
 export * from './hooks/use-icon';
+export {default as DynamicIconLoad} from './components/dynamic/DyamicIconLoad';
 export { default as Css } from './components/Css';
 export { default as Cypress } from './components/Cypress';
 export { default as Git } from './components/Git';

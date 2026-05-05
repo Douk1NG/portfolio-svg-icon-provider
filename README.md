@@ -36,6 +36,18 @@ const MyComponent = () => (
 );
 ```
 
+Dynamic loading of icons is also supported via the `DynamicIconLoad` component:
+
+```tsx
+import { DynamicIconLoad } from 'portfolio-svg-icon-provider';
+const MyComponent = () => (
+  <div>
+    <DynamicIconLoad name="React" size={32} color="#61DAFB" />
+    <DynamicIconLoad name="TypeScript" size="2em" className="my-custom-class" />
+  </div>
+);
+```
+
 ### Props
 
 All icon components accept the standard SVG attributes plus a convenient `size` prop:
