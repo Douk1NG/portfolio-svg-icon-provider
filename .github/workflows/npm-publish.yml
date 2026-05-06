@@ -1,10 +1,7 @@
 # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
 # For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
-name: Node.js Package
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+name: Publish to npm on release
 
 on:
   release:
@@ -17,9 +14,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
-      # Work around npm optional dependency resolution bug:
-      # https://github.com/npm/cli/issues/4828
+          node-version: 22
       - run: rm -rf node_modules package-lock.json
       - run: npm install
       - run: npm test
@@ -32,10 +27,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 22
           registry-url: https://registry.npmjs.org/
-      # Work around npm optional dependency resolution bug:
-      # https://github.com/npm/cli/issues/4828
       - run: rm -rf node_modules package-lock.json
       - run: npm install
       - run: npm run build
