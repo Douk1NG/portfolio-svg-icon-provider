@@ -6,18 +6,14 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "ignoreDeprecations": "6.0",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": [
       "node",
       "vitest"
     ],
-    "jsx": "react-jsx",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }
+    "jsx": "react-jsx"
   },
   "include": [
     "src/**/*",

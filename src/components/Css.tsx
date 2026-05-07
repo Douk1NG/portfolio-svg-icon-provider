@@ -1,7 +1,7 @@
 import { forwardRef, Ref } from "react";
-import { useIcon } from "@/hooks/use-icon";
-import type { IconProps } from "@/types/icons/icon-types";
-import SvgIcon from "@/svg/css.svg";
+import { useIcon } from "../hooks/use-icon";
+import type { IconProps } from "../types/icons/icon-types";
+import SvgIcon from "../svg/css.svg";
 
 const Css = (originalProps: IconProps, ref: Ref<SVGSVGElement>) => {
   const { iconProps: props } = useIcon(originalProps);

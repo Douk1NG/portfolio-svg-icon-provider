@@ -4,11 +4,11 @@ import { render, screen } from '@testing-library/react';
 
 const svgMock = (props: SVGProps<SVGSVGElement>) => <svg {...props} />;
 
-vi.mock('@/svg/React.svg', () => ({
+vi.mock('../svg/React.svg', () => ({
   default: svgMock,
 }));
 
-vi.mock('@/svg/react.svg', () => ({
+vi.mock('../svg/react.svg', () => ({
   default: svgMock,
 }));
 
@@ -16,7 +16,7 @@ const ICON_NAME = 'React';
 
 describe('DynamicIconLoad', () => {
   it('renders a dynamic icon and forwards props', async () => {
-    const { default: DynamicIconLoad } = await import('@/components/dynamic/DyamicIconLoad');
+    const { default: DynamicIconLoad } = await import('../components/dynamic/DyamicIconLoad');
 
     render(<DynamicIconLoad name={ICON_NAME} size={32} color="#61DAFB" data-testid="dynamic-icon" />);
 

@@ -13,9 +13,9 @@ function getComponentName(fileName: string): string {
 
 function generateWrapperCode(componentName: string, fileName: string): string {
   return `import { forwardRef, Ref } from "react";
-import { useIcon } from "@/hooks/use-icon";
-import type { IconProps } from "@/types/icons/icon-types";
-import SvgIcon from "@/svg/${fileName}";
+import { useIcon } from "../hooks/use-icon";
+import type { IconProps } from "../types/icons/icon-types";
+import SvgIcon from "../svg/${fileName}";
 
 const ${componentName} = (originalProps: IconProps, ref: Ref<SVGSVGElement>) => {
   const { iconProps: props } = useIcon(originalProps);
@@ -58,10 +58,10 @@ async function generateComponents() {
   }
 
   const loaderCode = `import type { ComponentType, SVGProps } from "react";
-import type { SvgIconName } from "@/types/icons/icon-names";
+import type { SvgIconName } from "../types/icons/icon-names";
 
 export const iconLoaders: Record<SvgIconName, () => Promise<{ default: ComponentType<SVGProps<SVGSVGElement>> }>> = {
-${componentNames.map(name => `  '${name}': () => import("@/components/${name}"),`).join('\n')}
+${componentNames.map(name => `  '${name}': () => import("../components/${name}"),`).join('\n')}
 };
 
 export function loadIcon(name: SvgIconName) {

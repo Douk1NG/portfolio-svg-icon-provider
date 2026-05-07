@@ -1,13 +1,5 @@
 {
   "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "ignoreDeprecations": "6.0",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["../src/*"],
-      "portfolio-svg-icon-provider": ["../src"],
-      "portfolio-svg-icon-provider/*": ["../src/*"]
-    }
-  },
+  "compilerOptions": {},
   "include": ["src/**/*"]
 }

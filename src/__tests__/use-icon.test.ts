@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { useIcon } from '@/hooks/use-icon';
+import { useIcon } from '../hooks/use-icon';
 
 describe('useIcon', () => {
   it('returns width and height based on the size prop', () => {

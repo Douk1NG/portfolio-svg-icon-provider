@@ -1,8 +1,8 @@
 import { Suspense, lazy, memo, type ComponentType, type SVGProps } from "react";
-import { useIcon as useIconProps } from "@/hooks/use-icon";
-import type { IconProps } from "@/types/icons/icon-types";
-import type { SvgIconName } from "@/types/icons/icon-names";
-import { loadIcon } from "@/hooks/use-icon-loaders";
+import { useIcon as useIconProps } from "../../hooks/use-icon";
+import type { IconProps } from "../../types/icons/icon-types";
+import type { SvgIconName } from "../../types/icons/icon-names";
+import { loadIcon } from "../../hooks/use-icon-loaders";
 import FallbackIcon from "./FallbackIcon";
 import IconSkeleton from "./Skeleton";
 

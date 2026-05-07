@@ -49,28 +49,20 @@
     "react": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@svgr/core": "^8.1.0",
-    "@svgr/webpack": "^8.1.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "esbuild-plugin-svgr": "^3.1.1",
+    "@vitejs/plugin-react": "^6.0.1",
     "jsdom": "^29.1.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "tsup": "^8.3.5",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.3",
-    "vite": "^5.4.21",
-    "@vitejs/plugin-react": "^4.7.0",
-    "vite-plugin-svgr": "^4.0.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.11",
+    "vite-plugin-svgr": "^4.5.0",
     "vitest": "^4.1.5"
-  },
-  "dependencies": {
-    "@svgr/plugin-jsx": "^8.1.0",
-    "@svgr/plugin-prettier": "^8.1.0",
-    "@svgr/plugin-svgo": "^8.1.0"
   }
 }

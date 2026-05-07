@@ -5,13 +5,17 @@ import path from 'path';
 
 export default defineConfig({
   root: path.resolve(__dirname),
-  plugins: [react(), svgr({ include: "**/*.svg" })],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '../src'),
-      'portfolio-svg-icon-provider': path.resolve(__dirname, '../src'),
+      'portfolio-svg-icon-provider': path.resolve(__dirname, '../src/index.ts'),
     },
   },
+  plugins: [
+    react(),
+    svgr({
+      include: '**/*.svg',
+    }),
+  ],
   server: {
     port: 4173,
   },
