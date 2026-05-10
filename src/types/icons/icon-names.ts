@@ -1,4 +1,4 @@
-export type SvgIconName = 
+export type SvgIconName =
   | 'Css'
   | 'Cypress'
   | 'Git'
