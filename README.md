@@ -1,5 +1,5 @@
 # @portfolio-svg-icon-provider
-
+<https://www.npmjs.com/package/portfolio-svg-icon-provider> <br>
 A lightweight, high-performance SVG icon provider for React portfolios. This package converts SVG files into optimized React components using SVGR, providing a type-safe and customizable way to use icons in your projects.
 
 ## 🚀 Features
