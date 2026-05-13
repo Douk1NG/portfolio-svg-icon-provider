@@ -1,7 +1,5 @@
-import type { SVGProps } from 'react';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-
 
 const ICON_NAME = 'React';
 
@@ -9,7 +7,9 @@ describe('DynamicIconLoad', () => {
   it('renders a dynamic icon and forwards props', async () => {
     const { default: DynamicIconLoad } = await import('../components/dynamic/DynamicIconLoad');
 
-    render(<DynamicIconLoad name={ICON_NAME} size={32} color="#61DAFB" data-testid="dynamic-icon" />);
+    render(
+      <DynamicIconLoad name={ICON_NAME} size={32} color="#61DAFB" data-testid="dynamic-icon" />,
+    );
 
     const svg = await screen.findByTestId('dynamic-icon');
 

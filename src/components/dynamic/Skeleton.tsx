@@ -1,13 +1,13 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 const skeletonStyle = {
-  display: "inline-block",
-  width: "1em",
-  height: "1em",
-  borderRadius: "2px",
-  backgroundColor: "currentColor",
+  display: 'inline-block',
+  width: '1em',
+  height: '1em',
+  borderRadius: '2px',
+  backgroundColor: 'currentColor',
   opacity: 0.15,
-  animation: "icon-pulse 1.4s ease-in-out infinite",
+  animation: 'icon-pulse 1.4s ease-in-out infinite',
 } as CSSProperties;
 
 const IconSkeleton = () => (

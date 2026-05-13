@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 const FallbackIcon = ({ name, ...props }: { name: string } & SVGProps<SVGSVGElement>) => (
   <svg

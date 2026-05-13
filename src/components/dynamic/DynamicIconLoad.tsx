@@ -1,10 +1,10 @@
-import { Suspense, lazy, memo, type ComponentType, type SVGProps } from "react";
-import { useIcon as useIconProps } from "../../hooks/use-icon";
-import type { IconProps } from "../../types/icons/icon-types";
-import type { SvgIconName } from "../../types/icons/icon-names";
-import { loadIcon } from "../../hooks/use-icon-loaders";
-import FallbackIcon from "./FallbackIcon";
-import IconSkeleton from "./Skeleton";
+import { Suspense, lazy, memo, createElement, type ComponentType, type SVGProps } from 'react';
+import { useIcon as useIconProps } from '../../hooks/use-icon';
+import type { IconProps } from '../../types/icons/icon-types';
+import type { SvgIconName } from '../../types/icons/icon-names';
+import { loadIcon } from '../../hooks/use-icon-loaders';
+import FallbackIcon from './FallbackIcon';
+import IconSkeleton from './Skeleton';
 
 export type LazySvgProps = IconProps & {
   name: SvgIconName;
@@ -19,10 +19,8 @@ function getIconComponent(name: SvgIconName) {
   if (!cachedIcons[name]) {
     cachedIcons[name] = lazy(() =>
       loadIcon(name).catch(() => ({
-        default: (props: SVGProps<SVGSVGElement>) => (
-          <FallbackIcon name={name} {...props} />
-        ),
-      }))
+        default: (props: SVGProps<SVGSVGElement>) => <FallbackIcon name={name} {...props} />,
+      })),
     );
   }
 
@@ -30,15 +28,19 @@ function getIconComponent(name: SvgIconName) {
 }
 
 const IconInner = ({ name, ...props }: LazySvgProps) => {
-  const SVG = getIconComponent(name);
+  const TargetIcon = getIconComponent(name);
   const { iconProps } = useIconProps(props);
-  return <SVG {...iconProps} />;
+  return createElement(TargetIcon, iconProps);
 };
+
+IconInner.displayName = 'IconInner';
 
 const Icon = memo(({ name, ...props }: LazySvgProps) => (
   <Suspense fallback={<IconSkeleton />}>
     <IconInner name={name} {...props} />
   </Suspense>
 ));
+
+Icon.displayName = 'Icon';
 
 export default Icon;
