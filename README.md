@@ -111,6 +111,22 @@ npm run demo
 
 Then open `http://localhost:4173` to interact with the icon preview UI, adjust size/color, and see all supported icons.
 
+### Code Quality & Standards
+
+This project maintains high standards for code quality and consistency:
+
+- **Strict Typing**: Forbidden `any` and `unknown` types to ensure maximum type safety.
+- **Automated Checks**: **Husky** and **lint-staged** run ESLint and Prettier on every commit.
+- **Modular Architecture**: Components follow a strict "one component per file" rule with logic extracted into custom hooks.
+
+#### Available Scripts
+
+- `npm run lint`: Run ESLint check.
+- `npm run format`: Format code with Prettier.
+- `npm run test`: Run unit tests with Vitest.
+- `npm run generate`: Re-generate React components from SVG files.
+- `npm run build`: Build the library for production.
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
