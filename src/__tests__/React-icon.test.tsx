@@ -2,9 +2,6 @@ import type { SVGProps } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-vi.mock('../svg/react.svg', () => ({
-  default: (props: SVGProps<SVGSVGElement>) => <svg {...props} />,
-}));
 
 describe('React icon component', () => {
   it('renders an svg and forwards size and custom props', async () => {

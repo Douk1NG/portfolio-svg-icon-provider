@@ -2,15 +2,6 @@ import type { SVGProps } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-const svgMock = (props: SVGProps<SVGSVGElement>) => <svg {...props} />;
-
-vi.mock('../svg/React.svg', () => ({
-  default: svgMock,
-}));
-
-vi.mock('../svg/react.svg', () => ({
-  default: svgMock,
-}));
 
 const ICON_NAME = 'React';
 
